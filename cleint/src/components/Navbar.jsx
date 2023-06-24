@@ -24,10 +24,10 @@ import {
     useTheme,
 } from "@mui/material";
 
-const Navbar = () => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     const dispatch = useDispatch();
-
     const theme = useTheme();
+
     return (
         <AppBar
             sx={{
@@ -40,12 +40,12 @@ const Navbar = () => {
                 {/* LEFT SIDE */}
                 <FlexBetween>
                     <IconButton
-                        onClick={() => console.log("open/close sidebar")}
+                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     >
                         <MenuIcon />
                     </IconButton>
                     <FlexBetween
-                        backGroundColor={theme.palette.background.alt}
+                        backgroundColor={theme.palette.background.alt}
                         borderRadius="9px"
                         gap="3rem"
                         p="0.1rem 1.5rem"
